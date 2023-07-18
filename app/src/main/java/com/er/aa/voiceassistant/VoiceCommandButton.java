@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -18,10 +19,14 @@ public class VoiceCommandButton implements View.OnClickListener {
     private Button button;
     private Activity activity;
 
+    private SpeechRecognizer speechRecognizer;
+
     public VoiceCommandButton(Button button, Activity activity) {
         this.button = button;
         this.activity = activity;
         this.button.setOnClickListener(this);
+        this.speechRecognizer = SpeechRecognizer.createSpeechRecognizer(activity);
+
     }
 
     @Override
@@ -69,5 +74,9 @@ public class VoiceCommandButton implements View.OnClickListener {
     private void openCalculator() {
         Toast.makeText(activity, "Opening calculator...", Toast.LENGTH_SHORT).show();
         // Add your calculator-opening logic here
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        handleActivityResult(requestCode, resultCode, data);
     }
 }
