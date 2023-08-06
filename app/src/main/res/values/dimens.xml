@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimension for the vertical margin of the toast -->
+    <dimen name="toast_vertical_margin">3dp</dimen>
+
+    <!-- Dimension for the text size of the toast message -->
+    <dimen name="toast_text_size">4sp</dimen>
+</resources>
