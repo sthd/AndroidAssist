@@ -1,3 +1,10 @@
 <resources>
+
     <string name="app_name">AndroidAssist</string>
+
+    <string name="text1">Alright la</string>
+    <string name="temperature_format">Temperature: %.2f °C</string>
+    <string name="temperature_only_format">%.2f °C</string>
+
+
 </resources>
