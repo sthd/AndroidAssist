@@ -6,5 +6,9 @@
     <string name="temperature_format">Temperature: %.2f °C</string>
     <string name="temperature_only_format">%.2f °C</string>
 
+    <string name="feature_whatsapp">Schedule WhatApp Messages</string>
+    <string name="feature_gate_opener">Gate Opener</string>
+    <string name="feature_temperature">temperature is</string>
+    <string name="feature_2fa">Handle 2FA</string>
 
 </resources>
