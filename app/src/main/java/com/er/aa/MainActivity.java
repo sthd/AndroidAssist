@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             temperature_view.set(weatherInfo.getTemperatureC() + " °C");
             //Toast.makeText(this, temperature_view, Toast.LENGTH_SHORT).show();
             //String temperature = weatherInfo.getTemperatureC() + " °C";
-            itemList = generateSampleData("temperature_view.get()");
+            this.itemList = generateSampleData("temperature_view.get()");
             //itemList = generateSampleData(temperature_view.get());
             adapter.notifyDataSetChanged();
 
@@ -102,8 +102,16 @@ public class MainActivity extends AppCompatActivity {
 
                     numlayouts = 2;
                 } else if (numlayouts == 2){
-                    //setContentView(R.layout.layout_main); // Change back to layout_main.xml
 
+                    Item newItem = new Item(R.drawable.weather_snow,  "wowo" + "\u00B0 " + " colds");
+                    int indexToRemoveAndReplace = 1;
+                    itemList.remove(indexToRemoveAndReplace);
+                    itemList.add(indexToRemoveAndReplace, newItem);
+
+                    adapter.updateData(itemList);
+                    //adapter.notifyDataSetChanged();
+                    //adapter.updateData(itemList);
+                    //recyclerView.setAdapter(adapter);
                     numlayouts = 0;
                 }
                 //isLayout1 = !isLayout1; // Toggle the layout flag
@@ -179,14 +187,6 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item(R.drawable.gate, getString(R.string.feature_gate_opener)));
         itemList.add(new Item(R.drawable.weather_partly_cloudy_rain, temperature + " " + " short clothes"));
         itemList.add(new Item(R.drawable.sms2fa, getString(R.string.feature_2fa)));
-
-
-
-        //itemList.add(new Item(R.drawable.weather, this.temperature_view + "29" + "\u00B0 " + " short clothes"));
-        //Toast.makeText(this, this.temperature_view, Toast.LENGTH_SHORT).show();
-        //itemList.add(new Item(R.drawable.weather, getString(R.string.feature_temperature) + "29" + "\u00B0 " + " short clothes"));
-        //itemList.add(new Item(R.drawable.sms2fa, temperature_view));
-        // Add more items as needed
 
         return itemList;
     }
