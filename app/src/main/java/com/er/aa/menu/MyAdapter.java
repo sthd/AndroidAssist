@@ -56,28 +56,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     return;
                 }
 
-                // Perform actions based on the clicked icon's position
-                if (clickedPosition == 0) {
-                    String te = "yay";
-                    Toast.makeText(v.getContext(), "Clicked on the first icon", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(v.getContext(), SmsActivity.class);
+                Item clickedItem = itemList.get(clickedPosition);
+                Class<?> targetActivity = clickedItem.getTargetActivity();
+
+                if (targetActivity != null) {
+                    Intent intent = new Intent(v.getContext(), targetActivity);
                     v.getContext().startActivity(intent);
-                    // Icon at position 0 was clicked
-                    // Perform action for the first icon
-                } else if (clickedPosition == 1) {
-                    Toast.makeText(v.getContext(), "Clicked on the 2 icon", Toast.LENGTH_SHORT).show();
-                    // Icon at position 1 was clicked
-                    // Perform action for the second icon
-                } else if (clickedPosition == 2) {
-                    Toast.makeText(v.getContext(), "Clicked on the 3 icon", Toast.LENGTH_SHORT).show();
-                    // Icon at position 2 was clicked
-                    // Perform action for the third icon
-                } else if (clickedPosition == 3) {
-                    Toast.makeText(v.getContext(), "Clicked on the 4 icon", Toast.LENGTH_SHORT).show();
-                    // Icon at position 3 was clicked
-                    // Perform action for the fourth icon
                 }
-                // Add more conditions for other icons as needed
             }
         });
     }

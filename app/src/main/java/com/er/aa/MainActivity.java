@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.er.aa.menu.Item;
 import com.er.aa.menu.MyAdapter;
+import com.er.aa.smsreceiver.SmsActivity;
 import com.er.aa.weather.WeatherViewModel;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -183,7 +184,8 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> generateSampleData(String temperature) {
 
         List<Item> itemList = new ArrayList<>();
-        itemList.add(new Item(R.drawable.whatsapp, getString(R.string.feature_whatsapp)));
+        //itemList.add(new Item(R.drawable.whatsapp, getString(R.string.feature_whatsapp)));
+        itemList.add(new Item(R.drawable.whatsapp, getString(R.string.feature_whatsapp), SmsActivity.class));
         itemList.add(new Item(R.drawable.gate, getString(R.string.feature_gate_opener)));
         itemList.add(new Item(R.drawable.weather_partly_cloudy_rain, temperature + " " + " short clothes"));
         itemList.add(new Item(R.drawable.sms2fa, getString(R.string.feature_2fa)));
