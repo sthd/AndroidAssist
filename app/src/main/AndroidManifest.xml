@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
-
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- needed for SMS -->
     <uses-permission android:name="android.permission.READ_SMS" /> <!-- needed for SMS -->
@@ -10,7 +9,9 @@
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> <!-- needed to open other apps -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- needed for whatsapp -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- needed for whatsapp -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -21,16 +22,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:targetApi="31" >
+        tools:targetApi="31">
 
         <activity
+            android:name=".whatsappscheduler.WhatsappSchedulerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                 <!-- <action android:name="com.whatsapp" /> -->
+                <!-- <action android:name="com.whatsapp" /> -->
             </intent-filter>
 
             <meta-data
@@ -39,37 +47,38 @@
         </activity>
         <activity
             android:name=".weather.WeatherActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
+            android:name="com.er.aa.smartalarm.SmartAlarmActivity"
+            android:label="Smart Alarm">
+        </activity>
+        <receiver android:name=".smartalarm.SmartAlarmReceiver" />
+
+        <activity
             android:name=".smsreceiver.SmsActivity"
-            android:exported="false" >
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-
-        <!-- needed for SMS -->
+        </activity> <!-- needed for SMS -->
         <receiver
             android:name=".smsreceiver.SmsReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
-        </receiver>
-        <!-- needed for SMS -->
-
-
+        </receiver> <!-- needed for SMS -->
         <!-- begin PalGate activity service -->
         <service
             android:name=".accservices.PalGateAccService"
             android:enabled="true"
-            android:label="Android Assistant gate"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:exported="true">
+            android:exported="true"
+            android:label="AA open gate"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -77,12 +86,22 @@
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
-        </service>
-        <!-- end PalGate activity service-->
+        </service> <!-- end PalGate activity service -->
+        <!-- begin WhatsApp activity service -->
+        <service
+            android:name=".accservices.WhatsAppAccService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="AA Schedule Chats WhatsApp"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
 
-
-
-
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_whatsapp" />
+        </service> <!-- end WhatsApp activity service -->
         <service
             android:name=".voiceassistant.SpeechRecognitionService"
             android:enabled="true"

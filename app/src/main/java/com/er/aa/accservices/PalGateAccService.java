@@ -99,7 +99,7 @@ public class PalGateAccService extends AccessibilityService {
             tmpNode = urlNodeInfo.get(0);
             //Toast.makeText(getApplicationContext(), "Node is GOOD" + urlNodeInfo.toString(), Toast.LENGTH_SHORT).show();
             Log.d(TAG, "Found " + refId);
-            Log.d(TAG, "the urlNode indfo is  " + urlNodeInfo.toString());
+            Log.d(TAG, "the urlNode info is  " + urlNodeInfo.toString());
             return tmpNode;
         }
         Log.d(TAG, "Not found " + refId);
