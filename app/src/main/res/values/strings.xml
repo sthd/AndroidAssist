@@ -10,5 +10,5 @@
     <string name="feature_gate_opener">Gate Opener</string>
     <string name="feature_temperature">temperature is</string>
     <string name="feature_2fa">Handle 2FA</string>
-
+    <string name="feature_alarm">Smart Alarm</string>
 </resources>

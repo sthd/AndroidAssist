@@ -8,13 +8,14 @@
 
     <ListView
         android:id="@+id/contactListView"
-        android:layout_width="166dp"
-        android:layout_height="95dp"
+        android:layout_width="151dp"
+        android:layout_height="105dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp"
+        android:textSize="10sp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="557dp"
+        tools:layout_editor_absoluteY="539dp"
         tools:listitem="@android:layout/simple_list_item_1" />
 
     <Button
@@ -39,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552" />
+        app:layout_constraintVertical_bias="0.421" />
 
     <Button
         android:id="@+id/button"
@@ -107,12 +108,12 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/helpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="47dp"
+        android:layout_height="43dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.956"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
